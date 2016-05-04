@@ -1,25 +1,35 @@
 $(function(){
-   $('#randomInsert').submit(function(){
 
-      var url = $(this).attr('action');
-      var data = $(this).serialize();
+    $.get('../dashboard/xhrGetListings', function(o){
 
-       $.post(url, data, function(o){
-         alert (1);
-      });
+        for(var i = 0; i < o.length;i++){
+            $('#listInserts').append('<div>' + o[i].text + '<a class="del" rel="' + o[i].id + '" href="#">__x</a></div>');
+        }
 
+        $('#listInserts').on('click','.del', function(){
+            delItem = $(this);
+            var id = $(this).attr('rel');
+            $.post('../dashboard/xhrDeleteListings', {'id': id}, function(o){
+                delItem.parent().remove();
+            },'json');
+            return false;
+        });
 
-       $.get('../dashboard/xhrGetListings', function (o) {
+    },'json');
 
-           for(var i = 0; i < o.length;i++){
-               $('#listInserts').append(o[i].text);
-           }
-       },'json');
+    $('#randomInsert').submit(function(){
 
+        var url = $(this).attr('action');
+        var data = $(this).serialize();
 
-      return false;
-   });
-});
+        $.post(url,data,function(o){
+            $('#listInserts').append('<div>' + o.text + '<a class="del" rel="' + o.id + '" href="#">__x</a></div>');
+        }, 'json');
+
+        return false;
+    });
+
+}());
 
 
 
