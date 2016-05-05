@@ -7,11 +7,7 @@ class Index extends Controller {
     }
 
     public function index(){
+        $this->view->title = "Main Page";
         $this->view->render('index/index');
     }
-
-    public function details(){
-        $this->view->render('index/index');
-    }
-
 }

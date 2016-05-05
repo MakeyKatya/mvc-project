@@ -9,6 +9,7 @@ class Login extends Controller {
     }
 
     public function index(){
+        $this->view->title = "Login";
         $this->view->render('login/index');
     }
 

@@ -10,4 +10,13 @@ function __autoload($class){
 
 require 'config.php';
 
-$app = new Bootstrap();
+$bootstrap = new Bootstrap();
+
+/** Optional Path Settings
+* $bootstrap->setControllerPath();
+* $bootstrap->setModelPath();
+* $bootstrap->setDefaultFile();
+* $bootstrap->setErrorFile();
+ */
+
+$bootstrap->init();

@@ -20,4 +20,18 @@ class Session {
         session_destroy();
     }
 
+    /**
+     * Check if user is logged in
+     */
+    public static function handleLogin () {
+
+        Session::init();
+        $logged = Session::get('loggedIn');
+        if($logged == false){
+            Session::destroy();
+            header('location: ../login');
+            exit;
+        }
+    }
+
 }

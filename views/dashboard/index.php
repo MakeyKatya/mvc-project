@@ -1,10 +1,25 @@
-Dashboard...Logged in only
+<div class="container">
+<h1>Dashboard...Logged in only</h1>
+
 <hr />
-<form id="randomInsert" action="../dashboard/xhrInsert" method="post">
-    <input type="text" name="text" />
-    <input type="submit" />
-</form>
+    <div class="col-sm-6">
 
-<div id="listInserts">
+        <form role="form" id="randomInsert" action="../dashboard/xhrInsert" method="post">
+            <div class="form-group">
+                <label for="login">Add a dashboard note:</label>
+                <textarea name="text" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
 
+    </div>
+    <div class="col-sm-6"><img class="img-responsive" src="<?php echo URL;?>public/images/index.jpg" ></div>
+
+    <div class="col-sm-12">
+        <br />
+        <br />
+        <ul class="list-group" id="listInserts">
+
+        </ul>
+    </div>
 </div>

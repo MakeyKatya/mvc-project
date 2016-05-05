@@ -14,7 +14,9 @@ class User extends Controller {
         }
     }
 
+
     public function index(){
+        $this->view->title = "Users";
         $this->view->userList = $this->model->userList();
         $this->view->render('user/index');
     }
@@ -24,6 +26,7 @@ class User extends Controller {
     }
 
     public function edit($id){
+        $this->view->title = "Edit Users";
         $this->view->user = $this->model->userSingleList($id);
         $this->view->render('user/edit');
     }
