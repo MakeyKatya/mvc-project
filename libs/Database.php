@@ -30,7 +30,7 @@ class Database extends PDO {
      * @param string $table A name of table to insert into
      * @param array $data An associative array
      */
-    public function insert($table, array $data){
+    public function insert($table, $data){
         ksort($data);
         $fieldNames = implode('`, `',array_keys($data));
         $fieldValues = ':'.implode(', :', array_keys($data));
